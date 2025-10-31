@@ -47,3 +47,19 @@ python detect_vehicle_video.py
   Console prints per-frame detection summaries:
   
   Frame 0001 | Vehicle Detected: True | Tailgating: False
+### Step 2 — AI → FPGA Communication (Generate uart_sim.txt)
+
+From inside the yolov5 folder, run:
+```bash
+python ai_to_fpga_sim.py
+```
+
+This script converts AI detections into 3-bit lines and writes them to:
+```bash
+yolov5/uart_sim_project/uart_sim.txt
+```
+
+Format (one line per frame):
+100 → Vehicle detected (bit2),
+010 → Tailgating (bit1),
+001 → EV detected (bit0), etc

@@ -1,43 +1,34 @@
-#  FPGA-Integrated Deep Learning Tolling Framework
+# FPGA-Integrated Deep Learning Tolling System 
 
-A complete **software-simulated intelligent tolling system** combining **Deep Learning (YOLOv5)** for real-time vehicle and tailgating detection with an **FPGA-based Finite State Machine (FSM)** implemented in **Verilog HDL**.
-
-This project demonstrates how AI-driven decision-making can be integrated into hardware-level control through **UART-based communication**, forming a foundation for future **smart highway infrastructure**.
-
----
-
-##  Overview
-
-Modern tolling systems often depend on manual or semi-automatic methods that lead to congestion and human error.  
-This project bridges **AI-based visual detection** with **digital FSM logic** for fully automated, secure toll management — all simulated in software.
-
-| Subsystem | Technology | Function |
-|------------|-------------|-----------|
-|  Deep Learning | YOLOv5 (PyTorch) | Detects vehicles, tailgating, and EVs in video |
-| Hardware Simulation | Verilog (ModelSim) | Controls gate, lights, and alerts via FSM |
-| Communication | UART Simulation | Transfers AI decisions to FSM |
-| Integration Type | Software-only Co-Simulation | Python ↔ Verilog over text-based UART log |
+## Overview
+This project demonstrates a **fully software-based FPGA-Integrated Deep Learning Tolling System**, combining **YOLOv5-based vehicle detection** with a **Verilog Finite State Machine (FSM)** simulation.  
+The system intelligently detects vehicles, identifies tailgating behavior, and integrates UART-based AI-to-FPGA communication — all simulated in software without physical hardware.
 
 ---
 
+##  Key Components
+
+###  Deep Learning (Python)
+- **Model:** YOLOv5 (pretrained on COCO dataset)
+- **Scripts:**
+  - `detect_vehicle_video.py` → Detects vehicles and tailgating in videos  
+  - `ai_to_fpga_sim.py` → Simulates UART communication between AI and FPGA
+- **Output:** Annotated video (`runs/detect/video_out/output.mp4`)  
+  with per-frame detection summary in the console
+
+###  FPGA Simulation (Verilog)
+- **Modules:**
+  - `toll_controller.v` → FSM controlling gate, alerts, and EV discount
+  - `uart_rx_sim.v` → Reads UART data or simulates it from text input
+  - `testbench.v` → Runs the simulation in ModelSim
+- **Outputs:**
+  - Simulated gate and alert signals
+  - Waveform confirming FSM behavior
+  - Optional UART file input (`uart_sim.txt`) for AI-driven simulation
 
 ---
 
-## 🧰 How to Run
+##  Running the Project
 
-### 1️⃣ Run Vehicle Detection
-
-Outputs annotated video at
-runs/detect/video_out/output.mp4
-
-Each frame prints whether:
-
-A vehicle was detected
-
-Tailgating occurred
-Place your input video inside `data/videos/` and run:
-
-```bash
-python vehicle_detect_video.py
-
-
+###  Step 1 — Deep Learning Detection
+Place your video in:

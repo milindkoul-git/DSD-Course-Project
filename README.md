@@ -111,3 +111,37 @@ Console messages from uart_rx_sim confirming each line read from the file.
 -  **FSM-based gate control and fraud alerts** fully verified in ModelSim  
 -  **Entirely software-based** — no physical FPGA hardware required  
 -  **Ready for future integration** with real FPGA boards and IoT-enabled toll systems  
+
+## 🧩 Example `uart_sim.txt` Content (One Line per Frame)
+100  
+100  
+110  
+100  
+010  
+001  
+000
+
+**Bit Mapping:**  
+`[vehicle, tailgate, EV]` → (`bit2 bit1 bit0`)  
+- `100` → Vehicle detected  
+- `010` → Tailgating alert  
+- `001` → Electric Vehicle detected (eligible for discount)  
+- `000` → Idle / No detection  
+
+---
+
+## 📌 Notes & Tips
+
+- Place `uart_sim.txt` in the same directory as the Verilog files (`yolov5/uart_sim_project/`) so `$fopen` can locate it.  
+- If ModelSim reports *file not found*, ensure your **working directory** when running `vsim` is the folder containing your `.v` files — or use an **absolute path** in `$fopen`.  
+- To **speed up simulation** when reading many frames, reduce the delay in `uart_rx_sim.v` (e.g., `#20` instead of `#100`).  
+- Keep YOLO model weights **out of the repository** (since they are large). Instead, document that they are automatically downloaded at runtime via `torch.hub`.
+
+---
+
+## 👥 Credits
+
+**Milind Koul** — Developer  
+_VIT School of Computer Science and Engineering_  
+
+**Guided by:** Dr. Jaffino G  

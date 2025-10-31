@@ -27,6 +27,14 @@ This project bridges **AI-based visual detection** with **digital FSM logic** fo
 
 ### 1️⃣ Run Vehicle Detection
 
+Outputs annotated video at
+runs/detect/video_out/output.mp4
+
+Each frame prints whether:
+
+A vehicle was detected
+
+Tailgating occurred
 Place your input video inside `data/videos/` and run:
 
 ```bash

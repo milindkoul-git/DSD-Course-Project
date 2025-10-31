@@ -95,9 +95,19 @@ run 1ms
 
 Waveform signals showing UART data and FSM outputs:
 
-uart_data → received from uart_sim.txt
-gate_open
-tailgate_alert
-ev_discount
+- **uart_data** → received from uart_sim.txt
+- **gate_open**
+- **tailgate_alert**
+- **ev_discount**
 
 Console messages from uart_rx_sim confirming each line read from the file.
+
+##  Features
+
+-  **Real-time YOLOv5-based vehicle detection** — supports both images and videos  
+-  **Tailgating detection** using bounding-box proximity analysis  
+-  **EV detection placeholder** — extendable for automatic toll discounts  
+-  **UART-simulated AI–FPGA communication** via `uart_sim.txt`  
+-  **FSM-based gate control and fraud alerts** fully verified in ModelSim  
+-  **Entirely software-based** — no physical FPGA hardware required  
+-  **Ready for future integration** with real FPGA boards and IoT-enabled toll systems  

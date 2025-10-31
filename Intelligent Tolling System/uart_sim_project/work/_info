@@ -1,0 +1,73 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Shadow/yolov5/uart_sim_project
+vtestbench
+Z1 !s110 1761866681
+!i10b 1
+!s100 =aW[@5XcUIPnL:P61Ua]92
+IQ>J<RSBboWbhTicGPeOik2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1761866633
+8C:/Users/Shadow/yolov5/uart_sim_project/testbench.v
+FC:/Users/Shadow/yolov5/uart_sim_project/testbench.v
+L0 5
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1761866681.000000
+!s107 C:/Users/Shadow/yolov5/uart_sim_project/testbench.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Shadow/yolov5/uart_sim_project/testbench.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vtoll_controller
+R1
+!i10b 1
+!s100 IlW64:j>?@?JKZOWo:aGf2
+Ie:o=_2?IOYR0fCPHJDGSL2
+R2
+R0
+w1761866484
+8C:/Users/Shadow/yolov5/uart_sim_project/toll_controller.v
+FC:/Users/Shadow/yolov5/uart_sim_project/toll_controller.v
+L0 5
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/Shadow/yolov5/uart_sim_project/toll_controller.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Shadow/yolov5/uart_sim_project/toll_controller.v|
+!i113 1
+R5
+R6
+vuart_rx_sim
+R1
+!i10b 1
+!s100 1<L8aFKEolRC3_ho`[I@]2
+IjUHKiRz:4M^4J`gY[k@351
+R2
+R0
+w1761866643
+8C:/Users/Shadow/yolov5/uart_sim_project/uart_rx_sim.v
+FC:/Users/Shadow/yolov5/uart_sim_project/uart_rx_sim.v
+L0 4
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/Shadow/yolov5/uart_sim_project/uart_rx_sim.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Shadow/yolov5/uart_sim_project/uart_rx_sim.v|
+!i113 1
+R5
+R6

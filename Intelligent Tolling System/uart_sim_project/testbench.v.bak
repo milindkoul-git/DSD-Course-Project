@@ -1,0 +1,39 @@
+`timescale 1ns/1ps
+// testbench.v
+// Testbench to simulate UART + Toll Controller system
+
+module testbench;
+    reg clk = 0;
+    reg reset = 1;
+    wire [2:0] uart_data;
+    wire gate_open, tailgate_alert, ev_discount;
+
+    // Instantiate UART simulator
+    uart_rx_sim uart_sim(
+        .clk(clk),
+        .reset(reset),
+        .uart_data(uart_data)
+    );
+
+    // Instantiate Toll Controller
+    toll_controller toll_ctrl(
+        .clk(clk),
+        .reset(reset),
+        .uart_data(uart_data),
+        .gate_open(gate_open),
+        .tailgate_alert(tailgate_alert),
+        .ev_discount(ev_discount)
+    );
+
+    // Clock generation
+    always #5 clk = ~clk; // 100MHz clock
+
+    initial begin
+        $display("Simulation start...");
+        #10 reset = 0;
+        #1500; // run long enough for all UART lines
+        $display("Simulation end.");
+        $finish;
+    end
+endmodule
+

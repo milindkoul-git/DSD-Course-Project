@@ -1,0 +1,35 @@
+`timescale 1ns/1ps
+// uart_rx_sim.v
+// Simulates UART receiver reading data from uart_sim.txt
+
+module uart_rx_sim(
+    input wire clk,
+    input wire reset,
+    output reg [2:0] uart_data
+);
+    integer file;
+    reg [2:0] temp;
+
+    initial begin
+        uart_data = 3'b000;
+        #20; // wait a bit for reset
+        $display("UART SIM: Starting data transmission...");
+
+        file = $fopen("uart_sim.txt", "r");
+        if (file == 0) begin
+            $display("? Error: Could not open uart_sim.txt");
+            $finish;
+        end
+
+        while (!$feof(file)) begin
+            $fscanf(file, "%b\n", temp);
+            uart_data = temp;
+            $display("UART SIM: Time=%0t | Sent=%b", $time, uart_data);
+            #100; // Wait before sending next UART packet
+        end
+
+        $fclose(file);
+        $display("UART SIM: Transmission complete.");
+    end
+endmodule
+

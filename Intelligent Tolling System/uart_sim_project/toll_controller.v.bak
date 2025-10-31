@@ -1,0 +1,17 @@
+// toll_controller.v
+// Processes UART input bits and drives outputs accordingly
+
+module toll_controller(
+    input wire clk,
+    input wire [2:0] uart_data,  // [2]=vehicle, [1]=tailgate, [0]=EV
+    output reg gate_open,
+    output reg tailgate_alert,
+    output reg ev_discount
+);
+    always @(posedge clk) begin
+        gate_open      <= uart_data[2];
+        tailgate_alert <= uart_data[1];
+        ev_discount    <= uart_data[0];
+    end
+endmodule
+

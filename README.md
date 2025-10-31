@@ -31,4 +31,19 @@ The system intelligently detects vehicles, identifies tailgating behavior, and i
 ##  Running the Project
 
 ###  Step 1 — Deep Learning Detection
-Place your video in:
+1. Place your video in:
+yolov5/data/videos/sample.mp4
+2. From inside the `yolov5` folder run:
+```bash
+python detect_vehicle_video.py
+```
+3.Result:
+
+Annotated output video saved to:
+
+runs/detect/video_out/output.mp4
+
+
+Console prints per-frame detection summaries:
+
+Frame 0001 | Vehicle Detected: True | Tailgating: False

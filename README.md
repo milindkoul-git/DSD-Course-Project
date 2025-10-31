@@ -40,9 +40,9 @@ python detect_vehicle_video.py
 #### 3.Result:
 
   Annotated output video saved to:
-  
+  ```bash
   runs/detect/video_out/output.mp4
-  
+  ```
   
   Console prints per-frame detection summaries:
   
@@ -63,3 +63,41 @@ Format (one line per frame):
 100 → Vehicle detected (bit2),
 010 → Tailgating (bit1),
 001 → EV detected (bit0), etc
+### 🧩 Step 3 — Verilog Simulation (ModelSim)
+
+1. **Copy or `cd` into:**
+```bash
+yolov5/uart_sim_project/
+```
+
+2. **Compile Verilog modules:**
+```bash
+vlog uart_rx_sim.v
+vlog toll_controller.v
+vlog testbench.v
+```
+3. **Run the simulation GUI:**
+```bash
+vsim -gui work.testbench
+```
+
+4.**In ModelSim GUI or console, execute:**
+```bash
+run -all
+
+
+(or run for a specific simulation time)
+
+run 1ms
+```
+
+5.**Observe the following:**
+
+Waveform signals showing UART data and FSM outputs:
+
+uart_data → received from uart_sim.txt
+gate_open
+tailgate_alert
+ev_discount
+
+Console messages from uart_rx_sim confirming each line read from the file.
